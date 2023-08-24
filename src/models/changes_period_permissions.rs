@@ -9,13 +9,25 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct RegistrationPeriodAwsAccountScript {
-    #[serde(rename = "bash", skip_serializing_if = "Option::is_none")]
-    pub bash: Option<String>,
+pub struct ChangesPeriodPermissions {
+    #[serde(rename = "dacl", skip_serializing_if = "Option::is_none")]
+    pub dacl: Option<Box<crate::models::ChangesPeriodDacl>>,
+    #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
+    pub group: Option<Box<crate::models::ChangesPeriodGroup>>,
+    #[serde(rename = "owner", skip_serializing_if = "Option::is_none")]
+    pub owner: Option<Box<crate::models::ChangesPeriodOwner>>,
+    /// Possible values: 0 - OWNER, 1 - GROUP, 2 - DACL, 3 - SACL
+    #[serde(rename = "security_info", skip_serializing_if = "Option::is_none")]
+    pub security_info: Option<i32>,
 }
 
-impl RegistrationPeriodAwsAccountScript {
-    pub fn new() -> RegistrationPeriodAwsAccountScript {
-        RegistrationPeriodAwsAccountScript { bash: None }
+impl ChangesPeriodPermissions {
+    pub fn new() -> ChangesPeriodPermissions {
+        ChangesPeriodPermissions {
+            dacl: None,
+            group: None,
+            owner: None,
+            security_info: None,
+        }
     }
 }

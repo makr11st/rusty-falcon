@@ -37,7 +37,7 @@ async fn get_all_hosts(
             break;
         }
     }
-    return Ok(details);
+    Ok(details)
 }
 
 async fn get_device_details(
@@ -50,7 +50,7 @@ async fn get_device_details(
     )
     .await?;
 
-    if !response.errors.is_empty() {
+    if !response.errors.is_none() {
         return Err(ApiError(format!(
             "while getting Falcon Host IDs: '{:?}'",
             response.errors
@@ -58,7 +58,7 @@ async fn get_device_details(
         .into());
     }
 
-    return Ok(response.resources);
+    Ok(response.resources)
 }
 
 async fn query_devices_by_filter_offset(
@@ -82,7 +82,7 @@ async fn query_devices_by_filter_offset(
         ))
         .into());
     }
-    return Ok(response);
+    Ok(response)
 }
 
 #[derive(Debug, Clone)]
