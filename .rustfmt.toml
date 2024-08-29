@@ -1,1 +1,6 @@
 max_width = 100
+merge_imports = true
+imports_granularity = "Crate"
+
+# non stable
+group_imports = "StdExternalCrate"
