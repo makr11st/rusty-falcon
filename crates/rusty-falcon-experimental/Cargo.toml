@@ -1,0 +1,28 @@
+[package]
+name = "rusty_falcon_experimental"
+version.workspace = true
+authors.workspace = true
+description = "Experimental Rust bindings for CrowdStrike Falcon API with bon builders"
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license-file.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[features]
+default = ["native-tls"]
+native-tls = ["reqwest/native-tls"]
+rustls-tls = ["reqwest/rustls-tls"]
+bon = ["dep:bon"]
+
+[dependencies]
+serde = { workspace = true, features = ["derive"] }
+serde_with = { workspace = true, features = ["base64"] }
+serde_json.workspace = true
+serde_repr.workspace = true
+url.workspace = true
+async-trait.workspace = true
+reqwest = { workspace = true, features = ["json", "multipart", "stream"] }
+bon = { workspace = true, optional = true }

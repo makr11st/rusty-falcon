@@ -1,0 +1,38 @@
+# openapi-generator-config.yaml for Rust client with bon builders
+#
+# Usage:
+# 1. Download swagger.json from your Falcon console:
+#    https://assets.falcon.crowdstrike.com/support/api/swagger.json
+#    (requires authentication)
+# 2. Run: openapi-generator generate -c openapi-generator-config-experimental.yaml
+
+generatorName: rust
+inputSpec: ./swagger_2026-01-28.json
+outputDir: ./crates/rusty-falcon-experimental
+
+additionalProperties:
+  packageName: rusty_falcon_experimental
+  projectName: rusty-falcon-experimental
+
+  # Rust-specific settings for bon builders
+  library: reqwest-trait
+  avoidBoxedModels: true
+  bestFitInt: true
+  hideGenerationTimestamp: true
+  preferUnsignedInt: true
+  topLevelApiClient: true
+  useBonBuilder: true
+  useSingleRequestParameter: true
+
+  # Sorting and validation
+  sortParamsByRequiredFlag: true
+  sortModelPropertiesByRequiredFlag: true
+  ensureUniqueParams: true
+
+  # Disable documentation generation
+  generateApiDocs: false
+  generateModelDocs: false
+
+  # Disable test generation
+  generateApiTests: false
+  generateModelTests: false
