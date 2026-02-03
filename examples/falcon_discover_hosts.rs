@@ -1,9 +1,10 @@
+use std::convert::{TryFrom, TryInto};
+
 use clap::Parser;
 use rusty_falcon::{
     apis::discover_api::{get_hosts, query_hosts},
     easy::client::FalconHandle,
 };
-use std::convert::{TryFrom, TryInto};
 
 // We set API limits to a constant value as the `get_hosts` takes max 100 elements.
 const LIMIT: i32 = 100;

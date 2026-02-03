@@ -1,5 +1,4 @@
 use clap::Parser;
-
 use rusty_falcon::{apis::intel_api::query_intel_indicator_entities, easy::client::FalconHandle};
 
 #[derive(Parser, Debug)]

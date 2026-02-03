@@ -1,5 +1,6 @@
-use rusty_falcon::apis::sensor_download_api::get_sensor_installers_ccidby_query;
-use rusty_falcon::easy::client::FalconHandle;
+use rusty_falcon::{
+    apis::sensor_download_api::get_sensor_installers_ccidby_query, easy::client::FalconHandle,
+};
 
 #[tokio::main]
 async fn main() {

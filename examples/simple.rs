@@ -1,5 +1,4 @@
-use rusty_falcon::apis::incidents_api::crowd_score;
-use rusty_falcon::easy::client::FalconHandle;
+use rusty_falcon::{apis::incidents_api::crowd_score, easy::client::FalconHandle};
 
 #[tokio::main]
 async fn main() {

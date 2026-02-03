@@ -1,10 +1,9 @@
+use std::{collections::HashSet, io, io::Write};
+
 use clap::Parser;
-use rusty_falcon::apis::sensor_update_policies_api;
-use rusty_falcon::easy::client::FalconHandle;
-use rusty_falcon::models::SensorUpdateKernelRespV1;
-use std::collections::HashSet;
-use std::io;
-use std::io::Write;
+use rusty_falcon::{
+    apis::sensor_update_policies_api, easy::client::FalconHandle, models::SensorUpdateKernelRespV1,
+};
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]

@@ -1,9 +1,10 @@
-use rusty_falcon::apis::configuration;
-use rusty_falcon::apis::spotlight_vulnerabilities_api;
-use rusty_falcon::easy::client::FalconHandle;
-use rusty_falcon::models;
-use std::error;
-use std::fmt;
+use std::{error, fmt};
+
+use rusty_falcon::{
+    apis::{configuration, spotlight_vulnerabilities_api},
+    easy::client::FalconHandle,
+    models,
+};
 
 #[tokio::main]
 async fn main() {

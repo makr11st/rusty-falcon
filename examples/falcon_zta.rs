@@ -1,5 +1,4 @@
 use clap::Parser;
-
 use rusty_falcon::{
     apis::{
         hosts_api::query_devices_by_filter_scroll, zero_trust_assessment_api::get_assessment_v1,

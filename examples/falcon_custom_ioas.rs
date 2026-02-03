@@ -1,5 +1,4 @@
 use clap::Parser;
-
 use rusty_falcon::{
     apis::custom_ioa_api::{get_rule_groups_mixin0, query_rule_groups_mixin0},
     easy::client::FalconHandle,

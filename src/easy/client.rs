@@ -1,9 +1,14 @@
-use crate::apis::Error;
-use crate::apis::configuration::Configuration;
-use crate::apis::oauth2_api::{Oauth2AccessTokenError, oauth2_access_token};
-use crate::easy::cloud::FalconCloud;
-use crate::error::CredentialsError;
 use std::env;
+
+use crate::{
+    apis::{
+        Error,
+        configuration::Configuration,
+        oauth2_api::{Oauth2AccessTokenError, oauth2_access_token},
+    },
+    easy::cloud::FalconCloud,
+    error::CredentialsError,
+};
 
 #[derive(Clone)]
 pub struct FalconHandle {
