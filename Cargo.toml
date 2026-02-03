@@ -1,43 +1,16 @@
 [package]
 name = "rusty_falcon"
-version = "0.7.0"
+version = "0.8.0"
 authors = ["CrowdStrike Inc"]
+description = "Rust bindings for CrowdStrike Falcon API"
 homepage = "https://github.com/CrowdStrike/rusty-falcon"
 repository = "https://github.com/CrowdStrike/rusty-falcon"
+readme = "README.md"
 edition = "2024"
 rust-version = "1.85.0"
 license-file = "LICENSE"
 keywords = ["api", "crowdstrike", "falcon", "security", "vulnerability"]
 categories = ["api-bindings", "asynchronous", "web-programming"]
-
-[workspace.dependencies]
-reqwest = { version = "0.12.28", default-features = false }
-serde = "1.0.228"
-serde_derive = "1.0.228"
-serde_json = "1.0.149"
-serde_with = { version = "3.16.1", default-features = false, features = [
-    "std",
-    "macros",
-] }
-serde_repr = "0.1.20"
-thiserror = "2.0.18"
-url = "2.5.8"
-async-trait = "0.1.88"
-bon = "3.8.2"
-
-[package]
-name = "rusty_falcon"
-version.workspace = true
-authors.workspace = true
-description = "Rust bindings for CrowdStrike Falcon API"
-homepage.workspace = true
-repository.workspace = true
-readme = "README.md"
-edition.workspace = true
-rust-version.workspace = true
-license-file.workspace = true
-keywords.workspace = true
-categories.workspace = true
 
 [package.metadata.typos]
 default = { extend-ignore-identifiers-re = [
@@ -49,25 +22,36 @@ default = { extend-ignore-identifiers-re = [
 files = { extend-exclude = [] }
 
 [features]
-default = []
+default = ["native-tls"]
 native-tls = ["reqwest/native-tls"]
+rustls = ["reqwest/rustls-tls"]
+experimental = [
+    "dep:async-trait",
+    "dep:bon",
+    "bon",
+    "reqwest/stream",
+    "serde_with/base64",
+]
+bon = []
 
 [dependencies]
-# To satisfy minimal version check
-openssl = { version = "0.10.75", optional = true }
-# To satisfy minimal version check
-openssl-sys = { version = "0.9.111", optional = true }
 reqwest = { version = "0.12.28", features = [
     "charset",
     "json",
     "multipart",
 ], default-features = false }
-serde = "1.0.228"
+serde = { version = "1.0.228", features = ["derive"] }
 serde_derive = "1.0.228"
 serde_json = "1.0.149"
-serde_with = "3.16.1"
+serde_with = { version = "3.16.1", default-features = false, features = [
+    "std",
+    "macros",
+] }
+serde_repr = "0.1.20"
 thiserror = "2.0.18"
 url = "2.5.8"
+async-trait = { version = "0.1.88", optional = true }
+bon = { version = "3.8.2", optional = true }
 
 [dev-dependencies]
 clap = { version = "4.5.54", features = ["derive"] }
